@@ -27,5 +27,10 @@ public class Gallery {
         return till;
     }
 
+    public void setArtworks(ArrayList<Artwork> artworks) {
+        this.artworks = artworks;
+    }
+    
+    
+    }
 
-}

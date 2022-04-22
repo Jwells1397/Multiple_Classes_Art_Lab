@@ -29,7 +29,11 @@ public class Artwork {
             return this.nft;}
 
 
+    public int buyArtworkFromGallery() {
+        return 0;
+    }
 
 
-
+    public void setArtworks(int i) {
+    }
 }
