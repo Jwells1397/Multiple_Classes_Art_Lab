@@ -4,41 +4,44 @@ import org.assertj.core.api.AssertionsForClassTypes;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 public class CustomerTest {
 
     Customer customer;
+
+    Artwork artwork;
 
     Artist artist;
 
     Gallery gallery;
 
+
+
     @BeforeEach
     public void setUp() {
-        customer = new Customer("Name", 0);
-        gallery = new Gallery("Arty",0);
+        customer = new Customer("Wells", 10);
+        gallery = new Gallery("The gal");
+        gallery.addArtwork( new Artwork("The beggining", "Jack", 2, 4));
+        gallery.addArtwork( new Artwork("The ning", "sack", 1, 8));
+        customer.buyArtwork(gallery.getArtworks().get(1));
+
+
+
+
     }
 
     @Test
     public void hasName() {
-        assertThat(customer.getName()).isEqualTo("Name");
+        assertThat(customer.getName()).isEqualTo("Wells");
     }
 
     @Test
-    public void canGetWallet() {
-        assertThat(customer.getWallet()).isEqualTo(0);
-    }
+    public void walletAmount(){ assertThat(customer.getWallet()).isEqualTo(9);}
 
-    /*@Test
-    public void canPurchaseArtworks(){ gallery.purchaseArtworks(gallery);
-        assertThat(gallery.purchaseArtworks()).isEqualTo(0)*/
-    /*@Test
-    public void canBuyArtworkFromGallery(){assertThat(customer.buyArtworkFromGallery()).isEqualTo(0);}*/
 
-    @Test
-    public void canBuyArtworkFromGallery() {
-        customer.buyArtworkFromGallery(gallery);
-        assertThat(customer.buyArtworkFromGallery()).isEqualTo(1);
-    }
 
 
 }
+
+

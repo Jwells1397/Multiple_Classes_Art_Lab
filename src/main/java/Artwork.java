@@ -1,6 +1,8 @@
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Artwork {
+
     private String title;
     private String artist;
     private double price;
@@ -14,26 +16,28 @@ public class Artwork {
         this.nft = nft;
     }
 
+
+
+
+
+
+
+    //    GETTERS & SETTERS
     public String getTitle() {
-        return this.title;
+        return title;
     }
 
     public String getArtist() {
-        return this.artist;
+        return artist;
     }
 
     public double getPrice() {
-        return this.price;}
+        return price;
+    }
 
     public int getNft() {
-            return this.nft;}
-
-
-    public int buyArtworkFromGallery() {
-        return 0;
+        return nft;
     }
 
 
-    public void setArtworks(int i) {
-    }
 }

@@ -1,37 +1,60 @@
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class Customer {
-
-
 
     private String name;
     private double wallet;
-    private int buyArtworkFromGallery;
+    private ArrayList<Artwork> customerArtwork;
 
-    public Customer (String name, double wallet){
+    public Customer(String name, double wallet) {
         this.name = name;
         this.wallet = wallet;
-        this.buyArtworkFromGallery = 0;
+        this.customerArtwork = new ArrayList<>();
     }
 
-    public String getName(){
-        return this.name;
-    }
-
-    public double getWallet(){
-        return this.wallet;
-    }
-    public void buyArtworkFromGallery(Gallery gallery){
-        int totalArtworks = 0;
-        for(Artwork artwork : gallery.getArtworks()){
-            totalArtworks += artwork.buyArtworkFromGallery();
-            artwork.setArtworks(0);
+    public boolean canBuy(Artwork artwork){
+        if( artwork.getPrice() <= this.wallet){
+            return true;
         }
-        this.buyArtworkFromGallery = totalArtworks;
+        return false;
     }
 
-    public int buyArtworkFromGallery(){
-        return this.buyArtworkFromGallery;
+    public void buyArtwork(Artwork artwork){
+        this.wallet -= artwork.getPrice();
+        this.customerArtwork.add(artwork);
     }
 
 
+    public int getArtworkCount(){
+        return this.customerArtwork.size();
+    }
+
+    //    GETTERS & SETTERS
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public double getWallet() {
+        return wallet;
+    }
+
+    public void setWallet(double wallet) {
+        this.wallet = wallet;
+    }
+
+    public ArrayList<Artwork> getCustomerArtwork() {
+        return customerArtwork;
+    }
+
+    public void setCustomerArtwork(ArrayList<Artwork> customerArtwork) {
+        this.customerArtwork = customerArtwork;
     }
 }
+
+
+

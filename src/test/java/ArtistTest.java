@@ -5,26 +5,31 @@ import java.util.ArrayList;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
+
 public class ArtistTest {
 
     Artist artist;
 
     Artwork artwork;
 
+    Gallery gallery;
+
+    Artwork artwork1;
+    Artwork artwork2;
+
     @BeforeEach
     public void setUp() {
         artist = new Artist("Blank");
-        artwork = new Artwork("Blank", "Blank",0.00, 0);
+
+
 
 
     }
     @Test
-    public void hasName(){ assertThat(artist.getName()).isEqualTo("Blank");
+    public void hasName(){ assertThat(artist.getArtist()).isEqualTo("Blank");
     }
 
-    @Test
-    public void hasListOfArt() { assertThat(artist.getArtworks().size()).isEqualTo(0);
-    }
+
 
 
 

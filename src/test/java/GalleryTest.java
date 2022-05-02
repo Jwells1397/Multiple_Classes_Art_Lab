@@ -11,25 +11,35 @@ public class GalleryTest {
     Artwork artwork;
 
 
+
+
     @BeforeEach
     public void setUp() {
-        gallery = new Gallery("Blank",0);
-        artwork = new Artwork("Blank", "Blank", 0, 0);
+        gallery = new Gallery("The gal");
+        gallery.addArtwork( new Artwork("The beggining", "Jack", 2, 4));
+        gallery.addArtwork( new Artwork("The ning", "sack", 1, 8));
+
+
     }
 
     @Test
     public void hasName() {
-        assertThat(gallery.getName()).isEqualTo("Blank");
+        assertThat(gallery.getName()).isEqualTo("The gal");
     }
 
     @Test
     public void canGetArt() {
-        assertThat(gallery.getArtworks().size()).isEqualTo(0);
+        assertThat(gallery.getArtworks().size()).isEqualTo(2);
     }
 
     @Test
     public void canGetTill() {
         assertThat(gallery.getTill()).isEqualTo(0.00);
     }
+
+    @Test
+    public void hasListOfArt() { assertThat(gallery.artworkCount()).isEqualTo(2);
+    }
+
 
 }
